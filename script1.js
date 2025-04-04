@@ -176,6 +176,10 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('flex');
 });
 
+window.onload = function() {
+    document.querySelector('.hero-image').classList.add('loaded');
+};
+
 searchEvent.addEventListener('input', filterEvents);
 filterCategory.addEventListener('change', filterEvents);
 addEventBtn.addEventListener('click', addNewEvent);
