@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Club - Where Innovation Meets Passion!</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4ddce4f42b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Notification Bar -->
+    <div id="notificationBar" class="notification-bar hidden">
+        <span id="notificationText">New event added: Welcome to Fusion Club!</span>
+        <button id="notificationClose" class="close-btn">&times;</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="/images/logo (1).png" alt="Fusion Club Logo">
+        </div>
+        
+        <!-- Mobile Toggle Button -->
+        <button id="menuToggle" class="menu-toggle">
+            &#9776;
+        </button>
+        
+        <div class="nav-menu hidden" id="navMenu">
+            <a href="#" id="homeLink" class="nav-link">Home</a>
+            <a href="#" id="eventsLink" class="nav-link">Events</a>
+            <a href="#" id="adminLink" class="nav-link admin-link hidden">Admin Dashboard</a>
+            <div class="auth-buttons" id="authButtons">
+                <button id="loginBtnNav" class="btn btn-outline">Login</button>
+                <button id="signupBtnNav" class="btn btn-primary">Sign Up</button>
+            </div>
+            <div class="user-info hidden" id="userInfo">
+                <span id="usernameDisplay" class="username"></span>
+                <button id="logoutBtn" class="btn btn-primary">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Home Page -->
+        <div id="homePage">
+            <!-- Hero Section -->
+            <section class="hero">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <div class="welcome-badge">Welcome</div>
+                    <h1>The Fusion Club</h1>
+                    <p>Where innovation, creativity, and technology come together to build the future!</p>
+                </div>
+            
+                <!-- Right Image -->
+                <div class="hero-image">
+                    <img src="/images/image.png" alt="Fusion Club">
+                </div>
+            </section>
+
+            <!-- Events Section -->
+            <section class="events-section">
+                <h2 class="section-title">Explore Events</h2>
+                <div class="events-grid" id="homeEventsGrid">
+                    <!-- Event cards will be loaded here -->
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-text">See More &rsaquo;</button>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="about-content">
+                    <h2>About Us</h2>
+                    <p>
+                        The Fusion Club is a dynamic community where innovation, creativity, and technology collide to shape the future. 
+                        We bring together passionate minds from diverse fields to collaborate, learn, and build groundbreaking projects.
+                    </p>
+                    <p>
+                        Whether you're a coder, designer, or an innovator, Fusion Club is the place to connect, grow, and push boundaries!
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+                <p class="footer-brand">@FusionClub</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Events Page -->
+        <div id="eventsPage" class="hidden">
+            <h2 class="section-title">All Events</h2>
+            <div class="events-filter">
+                <input type="text" id="searchEvent" placeholder="Search events..." class="search-input">
+                <select id="filterCategory" class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Design">Design</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Workshop">Workshop</option>
+                </select>
+            </div>
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="hidden">
+            <h2 class="section-title">Admin Dashboard</h2>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Events</h3>
+                    <p id="totalEvents">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Upcoming Events</h3>
+                    <p id="upcomingEvents">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Registrations</h3>
+                    <p id="totalRegistrations">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Users</h3>
+                    <p id="activeUsers">0</p>
+                </div>
+            </div>
+            
+            <!-- Add Event Form -->
+            <div class="add-event-form">
+                <h3>Add New Event</h3>
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <input type="text" id="eventName" placeholder="Enter event name">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate">
+                </div>
+                <div class="form-group">
+                    <label for="eventCategory">Category</label>
+                    <select id="eventCategory">
+                        <option value="Tech">Tech</option>
+                        <option value="Design">Design</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Workshop">Workshop</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" placeholder="Enter event description"></textarea>
+                </div>
+                <button id="addEventBtn" class="btn btn-primary btn-full">Add Event</button>
+            </div>
+            
+            <!-- Admin Events List -->
+            <h3 class="section-title">Manage Events</h3>
+            <div class="events-grid" id="adminEventsGrid">
+                <!-- Admin events will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Popup -->
+    <div id="eventPopup" class="modal">
+        <div class="modal-content">
+            <button id="popupClose" class="modal-close">&times;</button>
+            <div id="popupImage" class="event-banner">
+                <!-- Event image or category -->
+            </div>
+            <div class="popup-content">
+                <h2 id="popupTitle">Event Title</h2>
+                <div class="event-meta">
+                    <div><span>📅</span> <span id="popupDate">Date</span></div>
+                    <div><span>🏷️</span> <span id="popupCategory">Category</span></div>
+                    <div><span>👥</span> <span id="popupRegistrations">0</span> registrations</div>
+                </div>
+                <div id="popupDescription" class="event-description">
+                    Event description goes here...
+                </div>
+                <div class="popup-register">
+                    <div id="popupRegCount" class="reg-count">
+                        <span id="popupRegNumber">0</span> people registered
+                    </div>
+                    <button id="popupRegisterBtn" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button id="loginClose" class="modal-close">&times;</button>
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password">
+            </div>
+            <button id="loginSubmit" class="btn btn-primary btn-full">Login</button>
+            <div class="form-footer">
+                Don't have an account? <a href="#" id="showSignup">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <button id="signupClose" class="modal-close">&times;</button>
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password">
+            </div>
+            <div class="form-group">
+                <label for="signupConfirm">Confirm Password</label>
+                <input type="password" id="signupConfirm" placeholder="Confirm your password">
+            </div>
+            <div class="form-group checkbox">
+                <input type="checkbox" id="isAdminSignup">
+                <label for="isAdminSignup">Register as Admin (requires admin code)</label>
+            </div>
+            <div class="form-group hidden" id="adminCodeGroup">
+                <label for="adminCode">Admin Code</label>
+                <input type="password" id="adminCode" placeholder="Enter admin code">
+            </div>
+            <button id="signupSubmit" class="btn btn-primary btn-full">Sign Up</button>
+            <div class="form-footer">
+                Already have an account? <a href="#" id="showLogin">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
