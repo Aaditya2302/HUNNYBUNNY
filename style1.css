@@ -246,8 +246,9 @@ img {
 
 .hero-image img {
     width: 80%;
-    max-width: 400px;
+    max-width: 500px;
     border-radius: var(--border-radius);
+    translate: ;
 }
 
 /* Sections */
